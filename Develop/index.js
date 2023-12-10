@@ -1,6 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
+// Function to create the SVG content based on the user input
 function createSVG(userInput) {
   const { text, textColor = '#000000', shape, shapeColor } = userInput;
 
@@ -11,6 +12,7 @@ function createSVG(userInput) {
 
   let shapeElement = '';
 
+  // shapeElement is a string containing the SVG element based on the shape
   switch (shape) {
     case 'circle':
       shapeElement = `<circle cx="150" cy="100" r="50" fill="${shapeColor}" />`;
@@ -35,13 +37,14 @@ function createSVG(userInput) {
 
   return svgContent;
 }
-
+// Function to generate the SVG file based on the user input
 function generateSVG(userInput) {
   const svgContent = createSVG(userInput);
 
   fs.writeFileSync('logo.svg', svgContent);
 }
 
+// inquirer prompt to get user input
 async function commandLineApp() {
   const userInput = await inquirer.prompt([
     {

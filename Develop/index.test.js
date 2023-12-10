@@ -4,7 +4,6 @@ describe('commandLineApp', () => {
   // Test case 1: Valid input
   test('should generate SVG for valid input', async () => {
     // Using Jest's mock functions to mock dependencies
-    // Mock the user input
     const mockInput = {
       text: 'ABC',
       textColor: 'red',
